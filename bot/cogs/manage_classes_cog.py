@@ -1,8 +1,12 @@
 import logging
+import asyncio
+import datetime
 
 import discord
 import discord.ext.commands as commands
 
+from bot.utils.scheduler import Scheduler
+from bot.utils.converters import Duration, DurationDelta
 log = logging.getLogger(__name__)
 
 
@@ -11,6 +15,7 @@ class ManageClassesCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
+        self.scheduler = Scheduler()
 
     @commands.command()
     async def hello(self, ctx, *, member: discord.Member = None):
@@ -26,6 +31,18 @@ class ManageClassesCog(commands.Cog):
         embed = discord.Embed(title="Echo", color= 0x522D80)
         embed.add_field(name=ctx.author, value=' '.join(message))
         await ctx.send(embed=embed)
+
+    @commands.command()
+    async def test(self, ctx, time: DurationDelta):
+
+        foo = time.total_seconds()
+        task_id = self.scheduler.schedule_in(self.foo(ctx.channel), time= time)
+        for i in range(time):
+            await ctx.send(f'{task_id}: {i}')
+            await asyncio.sleep(1)
+    
+    async def foo(self, channel):
+        await channel.send("hello there")
 
 def setup(bot): 
     bot.add_cog(ManageClassesCog(bot))
