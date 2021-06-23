@@ -10,14 +10,14 @@
         <b-navbar-item
           id="nav"
           class="is-spaced is-tab"
-          tag="router-link"
+          tag="nuxt-link"
           :to="{ path: '/wiki' }"
         >
           Wiki
         </b-navbar-item>
         <b-navbar-item
           class="is-spaced is-tab"
-          tag="router-link"
+          tag="nuxt-link"
           :to="{ path: '/about' }"
         >
           About
@@ -27,7 +27,7 @@
       <template #end>
         <b-navbar-item
           class="is-spaced"
-          tag="router-link"
+          tag="nuxt-link"
           :to="{ path: '/about' }"
         >
           <div id="login" class="box has-background-primary">
