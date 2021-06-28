@@ -1,11 +1,17 @@
 <template>
   <div>
-    <b-navbar class="is-transparent has-background-primary shadow fixed-top">
-      <template #brand>
-        <b-navbar-item tag="router-link" :to="{ path: '/' }">
-          Clembot Logo</b-navbar-item
-        >
-      </template>
+    <nuxt-link :to="{ path: '/' }">
+      <img
+        id="main-logo"
+        class="mx-3 mt-3"
+        src="ClemBotLogo.svg"
+        alt="ClemBot"
+        width="90"
+      />
+    </nuxt-link>
+    <b-navbar
+      class="is-transparent has-background-primary has-shadow fixed-top"
+    >
       <template #start>
         <b-navbar-item
           id="nav"
@@ -13,34 +19,61 @@
           tag="nuxt-link"
           :to="{ path: '/wiki' }"
         >
-          Wiki
+          <b-icon icon="script" class="mr-1" size="is-small" /><b> Wiki </b>
         </b-navbar-item>
         <b-navbar-item
+          id="nav"
           class="is-spaced is-tab"
           tag="nuxt-link"
           :to="{ path: '/about' }"
         >
-          About
+          <b-icon icon="information-outline" class="mr-1" size="is-small" /><b
+            >About</b
+          >
+        </b-navbar-item>
+        <b-navbar-item
+          id="nav"
+          class="is-spaced is-tab"
+          tag="nuxt-link"
+          :to="{ path: '/status' }"
+        >
+          <b-icon icon="heart-cog-outline" class="mr-1" size="is-small" />
+          <b>Status</b>
         </b-navbar-item>
       </template>
-
       <template #end>
         <b-navbar-item
-          class="is-spaced"
-          tag="nuxt-link"
-          :to="{ path: '/about' }"
+          href="https://discord.com/api/oauth2/authorize?client_id=710672266245177365&permissions=1543630070&scope=bot"
         >
-          <div id="login" class="box has-background-primary">
-            <div class="columns">
-              <div class="column has-text-centered has-text-white">
-                <b> Login With Discord </b>
+          <b-button icon-left="plus" class="is-primary">
+            <b>Invite to Server </b>
+          </b-button>
+        </b-navbar-item>
+        <b-navbar-item href="https://github.com/ClemBotProject/ClemBot">
+          <b-icon id="tray-icons" icon="discord"> </b-icon>
+        </b-navbar-item>
+        <b-navbar-item
+          id="tray-icons"
+          href="https://github.com/ClemBotProject/ClemBot"
+        >
+          <b-icon icon="github"> </b-icon>
+        </b-navbar-item>
+        <!--
+        <b-navbar-item tag="nuxt-link" :to="{ path: '/about' }">
+          <b-button id="discord-login" class="has-text-centered is-ghost">
+            <div class="columns is-vcentered">
+              <div class="column">
+                <b> Login </b>
               </div>
               <div class="animation-wrapper">
-                <discord-logo class="mr-4 mt-1" />
+                <div id="discord-login-logo" class="column">
+                  <discord-logo class="mt-2" />
+                </div>
               </div>
             </div>
-          </div>
+          </b-button>
         </b-navbar-item>
+        -->
       </template>
     </b-navbar>
 
@@ -51,13 +84,35 @@
     </section>
   </div>
 </template>
-<style scoped>
-#login :hover + .animation-wrapper {
+<style scoped lang="scss">
+#main-logo {
+  position: absolute;
+  z-index: 200;
+}
+
+#discord-login {
+  background: #5865f2;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-decoration: none;
+}
+
+#nav {
+  left: 38%;
+}
+
+#tray-icons {
+  transition: all 1.2s ease-in-out;
+}
+
+#tray-icons :hover {
+  transform: scale(1.1);
+}
+
+#discord-login :hover + .animation-wrapper {
   animation-name: ckw;
   animation-duration: 1.5s;
   /* Things added */
   animation-iteration-count: infinite;
-  transform-origin: 30% 45%;
   display: inline-block;
   /* <--- */
 }
