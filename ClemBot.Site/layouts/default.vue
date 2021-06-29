@@ -6,11 +6,11 @@
         class="mx-3 mt-3"
         src="ClemBotLogo.svg"
         alt="ClemBot"
-        width="90"
+        width="7%"
       />
     </nuxt-link>
     <b-navbar
-      class="is-transparent has-background-primary has-shadow fixed-top"
+      class="is-transparent has-background-primary has-shadow is-fixed-top mb-4"
     >
       <template #start>
         <b-navbar-item
@@ -49,7 +49,7 @@
             <b>Invite to Server </b>
           </b-button>
         </b-navbar-item>
-        <b-navbar-item href="https://github.com/ClemBotProject/ClemBot">
+        <b-navbar-item href="https://discord.gg/mhrVuyh">
           <b-icon id="tray-icons" icon="discord"> </b-icon>
         </b-navbar-item>
         <b-navbar-item
@@ -76,17 +76,18 @@
         -->
       </template>
     </b-navbar>
-
     <section class="main-content">
-      <div class="container column">
-        <nuxt />
-      </div>
+      <nuxt />
     </section>
   </div>
 </template>
 <style scoped lang="scss">
+.section {
+  height: 40%;
+}
+
 #main-logo {
-  position: absolute;
+  position: fixed;
   z-index: 200;
 }
 
@@ -106,6 +107,7 @@
 
 #tray-icons :hover {
   transform: scale(1.1);
+  color: white;
 }
 
 #discord-login :hover + .animation-wrapper {

@@ -1,7 +1,6 @@
 // Import Bulma's core
 @import '~bulma/sass/utilities/_all';
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 // Set your colors
 $primary: #8c67ef;
@@ -13,8 +12,9 @@ $primary-invert: findColorInvert($primary);
 $custom-colors: null !default;
 $custom-shades: null !default;
 
-$scheme-main: #121212;
+$scheme-main: #272727;
 $primary: #7937b8;
+$info: #00cbff;
 $text: #e2e2e2;
 
 $navbar-item-img-max-height: 70;
