@@ -10,7 +10,8 @@
       />
     </nuxt-link>
     <b-navbar
-      class="is-transparent has-background-primary has-shadow is-fixed-top mb-4"
+      id="splash-card"
+      class="is-transparent has-shadow is-fixed-top mb-4"
     >
       <template #start>
         <b-navbar-item
@@ -89,6 +90,9 @@
 #main-logo {
   position: fixed;
   z-index: 200;
+}
+#splash-card {
+  opacity: 0.9;
 }
 
 #discord-login {
