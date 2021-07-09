@@ -102,86 +102,46 @@
     </section>
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
-        <div class="card column is-dark mt-6 mr-6">
-          <div class="card-content">
-            <h1 class="is-size-1 title has-text-white">ClemBot</h1>
-            <p class="subtitle has-text-white">
-              The modular and configurable open source Discord Bot of the future
-            </p>
-          </div>
-          <div class="tile is-ancestor">
-            <div class="tile is-vertical is-6">
-              <div id="nav-tile" class="tile is-parent">
-                <a
-                  href="https://discord.com/api/oauth2/authorize?client_id=710672266245177365&permissions=1543630070&scope=bot"
-                >
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical">
+            <div id="nav-tile" class="tile is-parent">
+              <a
+                href="https://discord.com/api/oauth2/authorize?client_id=710672266245177365&permissions=1543630070&scope=bot"
+              >
+                <div class="columns">
                   <article
                     id="nav-child"
-                    class="
-                      add-to-discord
-                      tile
-                      is-child
-                      notification
-                      is-primary
-                      column
-                    "
+                    class="tile is-child notification is-primary column"
                   >
-                    <div class="columns">
-                      <p class="title column has-text-centered mt-3">
-                        Summon me to your Server!
-                      </p>
-                      <b-icon
-                        class="column is-one-quarter mt-3"
-                        icon="discord"
-                        custom-size="mdi-48px"
-                      />
-                    </div>
+                    <p class="title">Message Logging</p>
+                    <p class="subtitle">
+                      Complete message edit and deletion logging to make
+                      moderating easy
+                    </p>
                   </article>
-                </a>
-              </div>
-              <div id="nav-tile" class="tile is-parent has-shadow"></div>
-            </div>
-            <div id="nav-tile" class="tile is-parent is-vertical">
-              <nuxt-link :to="{ path: '/wiki' }">
-                <article
-                  id="nav-child"
-                  class="tile is-child notification is-primary"
-                >
-                  <p class="title">Feature Packed</p>
-                  <div class="content subtitle">
-                    <ul>
-                      <li><b>Moderation</b></li>
-                      <ul>
-                        <li>Banning</li>
-                        <li>Muting</li>
-                        <li>Warning</li>
-                      </ul>
-                      <li><b>Custom Prefixes</b></li>
-                      <li><b>User and Message Logging</b></li>
-                      <li><b>Role Management</b></li>
-                      <li><b>Welcome Messages</b></li>
-                      <li><b>Custom Tags</b></li>
-                    </ul>
+                  <div id="nav-child">
+                    <b-image
+                      class="column"
+                      src="FeatureImages/MessageEdit.png"
+                    />
                   </div>
-                </article>
-              </nuxt-link>
+                </div>
+              </a>
             </div>
+            <div id="nav-tile" class="tile is-parent has-shadow"></div>
           </div>
-          <a href="https://github.com/ClemBotProject/ClemBot">
-            <div id="nav-tile" class="tile is-parent">
-              <article
-                id="nav-child"
-                class="tile is-child notification is-dark"
-              >
-                <p class="title">Open Source</p>
-                <p class="subtitle">
-                  MIT licensed with an active and helpful community
-                </p>
-              </article>
-            </div>
-          </a>
         </div>
       </div>
+      <a href="https://github.com/ClemBotProject/ClemBot">
+        <div id="nav-tile" class="tile is-parent">
+          <article id="nav-child" class="tile is-child notification is-dark">
+            <p class="title">Open Source</p>
+            <p class="subtitle">
+              MIT licensed with an active and helpful community
+            </p>
+          </article>
+        </div>
+      </a>
     </section>
   </div>
 </template>
@@ -219,6 +179,7 @@ export default Vue.extend({
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   text-decoration: none;
 }
+
 #splash-card {
   opacity: 0.9;
 }
