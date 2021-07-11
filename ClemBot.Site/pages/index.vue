@@ -103,51 +103,50 @@
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
         <div class="tile is-ancestor">
-          <div class="tile is-vertical">
-            <div class="tile is-parent">
-              <div class="columns">
-                <article class="tile is-child notification is-primary column">
-                  <p class="title">Message Logging</p>
-                  <p class="subtitle">
-                    Complete message edit and deletion logging to make
-                    moderating easy
-                  </p>
-                </article>
-                <div id="nav-child">
-                  <b-image
-                    id="help-tiles"
-                    class="column"
-                    src="FeatureImages/MessageEdit.png"
-                  />
-                </div>
-              </div>
-            </div>
-            <div id="nav-tile" class="tile is-parent has-shadow"></div>
+          <div v-for="feature in features" :key="feature">
+            <feature-card
+              :title="feature.title"
+              :description="feature.description"
+              :image="feature.image"
+            />
           </div>
         </div>
       </div>
-      <a href="https://github.com/ClemBotProject/ClemBot">
-        <div id="nav-tile" class="tile is-parent">
-          <article id="nav-child" class="tile is-child notification is-dark">
-            <p class="title">Open Source</p>
-            <p class="subtitle">
-              MIT licensed with an active and helpful community
-            </p>
-          </article>
-        </div>
-      </a>
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import FeatureCard from '~/components/FeatureCard.vue'
 
 export default Vue.extend({
+  components: { FeatureCard },
   data() {
     return {
       guildsCount: 'Unknown',
       usersCount: 'Unknown',
+
+      features: [
+        {
+          title: 'Message Logging',
+          description:
+            'Complete message edit and deletion logging to make moderating easy',
+          image: 'FeatureImages/MessageEdit.png',
+        },
+        {
+          title: 'Moderation',
+          description:
+            'Ban Troublesome members, mute spammers and keep track of warnings to provide some accountability in your community',
+          image: 'FeatureImages/MemberMute.png',
+        },
+        {
+          title: 'User Logging',
+          description:
+            'Keep track of your servers joins and leaves with welcome messages and logging posts',
+          image: 'FeatureImages/UserJoinEmbed.png',
+        },
+      ],
     }
   },
 

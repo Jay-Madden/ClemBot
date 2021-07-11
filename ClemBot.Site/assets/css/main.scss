@@ -1,6 +1,6 @@
 // Import Bulma's core
 @import '~bulma/sass/utilities/_all';
-
+@import '~@creativebulma/bulma-divider';
 
 // Set your colors
 $primary: #8c67ef;
@@ -16,6 +16,7 @@ $scheme-main: #272727;
 $primary: #7937b8;
 $info: #00cbff;
 $text: #e2e2e2;
+$link-hover: $primary;
 
 $navbar-item-img-max-height: 70;
 $navbar-padding-horizontal: 10;

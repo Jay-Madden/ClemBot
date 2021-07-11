@@ -18,6 +18,7 @@
     "sass": "^1.32.0"
   },
   "devDependencies": {
+    "@creativebulma/bulma-divider": "^1.1.0",
     "@nuxt/types": "^2.15.3",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",

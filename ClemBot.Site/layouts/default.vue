@@ -59,27 +59,46 @@
         >
           <b-icon icon="github"> </b-icon>
         </b-navbar-item>
-        <!--
-        <b-navbar-item tag="nuxt-link" :to="{ path: '/about' }">
-          <b-button id="discord-login" class="has-text-centered is-ghost">
-            <div class="columns is-vcentered">
-              <div class="column">
-                <b> Login </b>
-              </div>
-              <div class="animation-wrapper">
-                <div id="discord-login-logo" class="column">
-                  <discord-logo class="mt-2" />
-                </div>
-              </div>
-            </div>
-          </b-button>
-        </b-navbar-item>
-        -->
       </template>
     </b-navbar>
     <section class="main-content">
       <nuxt />
     </section>
+    <footer class="footer has-background-dark">
+      <div>
+        <a
+          href="https://discord.gg/mhrVuyh"
+          rel="noopener noreferrer"
+          target="_blank"
+          >Support Server</a
+        >
+      </div>
+      <div>
+        <a
+          href="https://github.com/ClemBotProject/ClemBot/blob/master/LICENSE"
+          rel="noopener noreferrer"
+          target="_blank"
+          >License</a
+        >
+      </div>
+      <a
+        href="https://github.com/ClemBotProject/ClemBot"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <div class="tile mt-6 is-parent column">
+          <article
+            id="repo-footer"
+            class="tile is-child notification has-background-black"
+          >
+            <p class="title">Open Source</p>
+            <p class="subtitle">
+              MIT licensed with an active and helpful community
+            </p>
+          </article>
+        </div>
+      </a>
+    </footer>
   </div>
 </template>
 <style scoped lang="scss">
@@ -91,6 +110,7 @@
   position: fixed;
   z-index: 200;
 }
+
 #splash-card {
   opacity: 0.9;
 }
