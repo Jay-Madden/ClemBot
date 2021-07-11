@@ -104,29 +104,23 @@
       <div class="hero-body">
         <div class="tile is-ancestor">
           <div class="tile is-vertical">
-            <div id="nav-tile" class="tile is-parent">
-              <a
-                href="https://discord.com/api/oauth2/authorize?client_id=710672266245177365&permissions=1543630070&scope=bot"
-              >
-                <div class="columns">
-                  <article
-                    id="nav-child"
-                    class="tile is-child notification is-primary column"
-                  >
-                    <p class="title">Message Logging</p>
-                    <p class="subtitle">
-                      Complete message edit and deletion logging to make
-                      moderating easy
-                    </p>
-                  </article>
-                  <div id="nav-child">
-                    <b-image
-                      class="column"
-                      src="FeatureImages/MessageEdit.png"
-                    />
-                  </div>
+            <div class="tile is-parent">
+              <div class="columns">
+                <article class="tile is-child notification is-primary column">
+                  <p class="title">Message Logging</p>
+                  <p class="subtitle">
+                    Complete message edit and deletion logging to make
+                    moderating easy
+                  </p>
+                </article>
+                <div id="nav-child">
+                  <b-image
+                    id="help-tiles"
+                    class="column"
+                    src="FeatureImages/MessageEdit.png"
+                  />
                 </div>
-              </a>
+              </div>
             </div>
             <div id="nav-tile" class="tile is-parent has-shadow"></div>
           </div>
@@ -149,11 +143,6 @@
 <script lang="ts">
 import Vue from 'vue'
 
-interface GlobalStats {
-  guilds: string
-  users: string
-}
-
 export default Vue.extend({
   data() {
     return {
@@ -163,9 +152,7 @@ export default Vue.extend({
   },
 
   async fetch() {
-    const stats: GlobalStats = await fetch(
-      'https://localhost:5001/api/public/globalstats'
-    ).then((res) => res.json())
+    const stats = await this.$api.public.getGlobalStats()
 
     this.guildsCount = stats.guilds ?? 'many'
     this.usersCount = stats.users ?? 'all the'
@@ -192,6 +179,10 @@ export default Vue.extend({
   -webkit-transform: translatez(0);
 
   background-position: bottom;
+}
+
+#help-tiles {
+  border-radius: 25px;
 }
 
 #nav-tile {

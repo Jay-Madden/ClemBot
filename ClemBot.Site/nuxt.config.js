@@ -16,11 +16,22 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  axios: {
+    baseURL: 'https://localhost:5001/api/', // Used as fallback if no runtime config is provided
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['assets/css/main.scss'],
 
+  env: {
+    prod: process.env.PROD === '1',
+    baseUrl: process.env.BASE_URL,
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '@/plugins/api.ts', // our plugin
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -33,6 +44,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+
     // https://go.nuxtjs.dev/buefy
     ['nuxt-buefy', { css: false }],
   ],
