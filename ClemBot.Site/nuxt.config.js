@@ -16,8 +16,6 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  components: true,
-
   axios: {
     baseURL: 'https://localhost:5001/api/', // Used as fallback if no runtime config is provided
   },

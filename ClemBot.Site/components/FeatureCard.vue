@@ -1,6 +1,6 @@
 <template>
   <div id="feature-card" class="tile is-parent mx-3 has-text-centered">
-    <article class="tile is-child notification is-primary">
+    <article class="tile is-child notification is-dark">
       <p class="title">{{ title }}</p>
       <div class="divider">About</div>
       <div class="block">
