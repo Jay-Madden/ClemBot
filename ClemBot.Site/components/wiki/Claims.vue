@@ -18,7 +18,7 @@
         claims on it and a claim can be on multiple roles, how you set up your
         server is up too you!
       </p>
-      <h4 class="title i1-light">Available Claims</h4>
+      <h4 class="title is-light">Available Claims</h4>
       <b-table :data="availableClaims" :columns="columns"></b-table>
       <h2 class="title is-light">Commands</h2>
       <h3 class="title is-light">Add a claim to a role</h3>

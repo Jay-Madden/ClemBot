@@ -49,14 +49,24 @@
               ></b-menu-item>
             </b-menu-item>
             <b-menu-item
-              label="Tags"
+              label="Designated Channels"
               class="pb-1"
-              @click="changeWikiPage('wiki/Tags')"
+              @click="changeWikiPage('wiki/DesignatedChannels')"
             ></b-menu-item>
             <b-menu-item
               label="Assignable Roles"
               class="pb-1"
               @click="changeWikiPage('wiki/AssignableRoles')"
+            ></b-menu-item>
+            <b-menu-item
+              label="Tags"
+              class="pb-1"
+              @click="changeWikiPage('wiki/Tags')"
+            ></b-menu-item>
+            <b-menu-item
+              label="Welcome Messages"
+              class="pb-1"
+              @click="changeWikiPage('wiki/WelcomeMessage')"
             ></b-menu-item>
           </b-menu-list>
         </b-menu>

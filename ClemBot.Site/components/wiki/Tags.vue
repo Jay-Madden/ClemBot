@@ -37,6 +37,8 @@
         Hello there Discord, I am invoking $MyTag isnt that cool!
       </blockquote>
       <h2 class="title is-light">Commands</h2>
+      <h4 class="title is-light">View all tags in the server</h4>
+      <blockquote class="has-background-grey-darker">!tags</blockquote>
       <h4 class="title is-light">Create a tag</h4>
       <p>Format</p>
       <blockquote class="has-background-grey-darker">
