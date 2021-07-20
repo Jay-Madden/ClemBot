@@ -35,6 +35,11 @@
           removed from them arbitrarily. Please see the claims section of this
           wiki for more information.
         </p>
+        <h3 class="title is-light">Further reading</h3>
+        <p>
+          ClemBot is super configurable so feel free to read the next sections
+          of this wiki and play around with what it can do!
+        </p>
       </div>
     </div>
   </div>

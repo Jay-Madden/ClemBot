@@ -26,20 +26,19 @@
           id="nav"
           class="is-spaced is-tab"
           tag="nuxt-link"
-          :to="{ path: '/about' }"
+          :to="{ path: '/status' }"
         >
-          <b-icon icon="information-outline" class="mr-1" size="is-small" /><b
-            >About</b
-          >
+          <b-icon icon="heart-cog-outline" class="mr-1" size="is-small" />
+          <b>Status</b>
         </b-navbar-item>
         <b-navbar-item
           id="nav"
           class="is-spaced is-tab"
           tag="nuxt-link"
-          :to="{ path: '/status' }"
+          :to="{ path: '/support' }"
         >
-          <b-icon icon="heart-cog-outline" class="mr-1" size="is-small" />
-          <b>Status</b>
+          <b-icon icon="patreon" class="mr-1" size="is-small" />
+          <b>Support</b>
         </b-navbar-item>
       </template>
       <template #end>
