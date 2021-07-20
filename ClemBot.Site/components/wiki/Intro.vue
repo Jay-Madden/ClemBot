@@ -32,7 +32,8 @@
           The next step is to assign claims to your moderator/admin roles,
           Claims are ClemBots way of granting access to different ClemBot
           functionality. Claims are associated with roles and can be added and
-          removed from them arbitrarily.
+          removed from them arbitrarily. Please see the claims section of this
+          wiki for more information.
         </p>
       </div>
     </div>

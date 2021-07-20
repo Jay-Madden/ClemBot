@@ -22,7 +22,7 @@
       <h4 class="title i1-light">Available Claims</h4>
       <b-table :data="availableClaims" :columns="columns"></b-table>
       <h2 class="title is-light">Commands</h2>
-      <h4 class="title is-light">Add a claim to a role</h4>
+      <h3 class="title is-light">Add a claim to a role</h3>
       <p><b>Format</b></p>
       <blockquote class="has-background-grey-darker">
         !claims add &lt;ClaimName&gt; @Role
@@ -31,7 +31,7 @@
       <blockquote class="has-background-grey-darker">
         !claims add tag_add @MyCoolRole
       </blockquote>
-      <h4 class="title is-light">Remove a claim from a role</h4>
+      <h3 class="title is-light">Remove a claim from a role</h3>
       <p><b>Format</b></p>
       <blockquote class="has-background-grey-darker">
         !claims remove &lt;ClaimName&gt; @Role
@@ -40,7 +40,7 @@
       <blockquote class="has-background-grey-darker">
         !claims remove tag_add @MyCoolRole
       </blockquote>
-      <h4 class="title is-light">View Claims on a role or user</h4>
+      <h3 class="title is-light">View Claims on a role or user</h3>
       <p><b>Format</b></p>
       <blockquote class="has-background-grey-darker">!claims @Role</blockquote>
       <p>or</p>

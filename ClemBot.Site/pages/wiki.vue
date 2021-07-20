@@ -48,6 +48,11 @@
                 @click="changeWikiPage('wiki/moderation/Ban')"
               ></b-menu-item>
             </b-menu-item>
+            <b-menu-item
+              label="Tags"
+              class="pb-1"
+              @click="changeWikiPage('wiki/Tags')"
+            ></b-menu-item>
           </b-menu-list>
         </b-menu>
       </div>
@@ -71,6 +76,7 @@ export default Vue.extend({
   methods: {
     changeWikiPage(path: string) {
       this.activeItem = () => import(`~/components/${path}.vue`)
+      window.scrollTo(0, 0)
     },
   },
 })
@@ -80,5 +86,6 @@ export default Vue.extend({
 #wiki-component {
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow-y: auto;
 }
 </style>
