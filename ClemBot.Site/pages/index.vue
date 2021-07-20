@@ -102,13 +102,17 @@
     </section>
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
-        <div class="tile is-ancestor">
-          <div v-for="feature in features" :key="feature">
-            <feature-card
-              :title="feature.title"
-              :description="feature.description"
-              :image="feature.image"
-            />
+        <div class="tile is-ancestor is-vertical">
+          <div v-for="chunk in features" :key="chunk">
+            <div class="tile is-ancestor">
+              <div v-for="feature in chunk" :key="feature">
+                <feature-card
+                  :title="feature.title"
+                  :description="feature.description"
+                  :image="feature.image"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -118,6 +122,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { chunkArray } from '~/services/utilities'
 import FeatureCard from '~/components/FeatureCard.vue'
 
 export default Vue.extend({
@@ -127,26 +132,47 @@ export default Vue.extend({
       guildsCount: 'Unknown',
       usersCount: 'Unknown',
 
-      features: [
-        {
-          title: 'Message Logging',
-          description:
-            'Complete message edit and deletion logging to make moderating easy',
-          image: 'FeatureImages/MessageEdit.png',
-        },
-        {
-          title: 'Moderation',
-          description:
-            'Ban Troublesome members, mute spammers and keep track of warnings to provide some accountability in your community',
-          image: 'FeatureImages/MemberMute.png',
-        },
-        {
-          title: 'User Logging',
-          description:
-            'Keep track of your servers joins and leaves with welcome messages and logging posts',
-          image: 'FeatureImages/UserJoinEmbed.png',
-        },
-      ],
+      features: chunkArray(
+        [
+          {
+            title: 'Message Logging',
+            description:
+              'Complete message edit and deletion logging to make moderating easy',
+            image: 'FeatureImages/MessageEdit.png',
+          },
+          {
+            title: 'Moderation',
+            description:
+              'Ban Troublesome members, mute spammers and keep track of warnings to provide some accountability in your community',
+            image: 'FeatureImages/MemberMute.png',
+          },
+          {
+            title: 'User Logging',
+            description:
+              'Keep track of your servers joins and leaves with welcome messages and logging posts',
+            image: 'FeatureImages/UserJoinEmbed.png',
+          },
+          {
+            title: 'Custom Tags',
+            description:
+              'Create custom tags and invoke them later to easily convey repeated information',
+            image: 'FeatureImages/TagInvoke.png',
+          },
+          {
+            title: 'Assignable Roles',
+            description:
+              'Set roles as assignable and allow your members to self assign what roles they want',
+            image: 'FeatureImages/AssignRoles.png',
+          },
+          {
+            title: 'Custom Prefixes',
+            description:
+              'Do you have many of bots in your server? Clembots commands prefix is totally customizable!',
+            image: 'FeatureImages/CustomPrefix.png',
+          },
+        ],
+        3
+      ),
     }
   },
 
@@ -176,7 +202,7 @@ export default Vue.extend({
   background-repeat: no-repeat;
   transform: translatez(0);
   -webkit-transform: translatez(0);
-
+  user-select: none;
   background-position: bottom;
 }
 

@@ -13,6 +13,7 @@ $custom-colors: null !default;
 $custom-shades: null !default;
 
 $scheme-main: #272727;
+//$scheme-main: #36393F;
 $primary: #7937b8;
 $info: #00cbff;
 $text: #e2e2e2;
@@ -23,6 +24,21 @@ $navbar-padding-horizontal: 10;
 $navbar-box-shadow-color: $text;
 
 $footer-padding: 1;
+
+$menu-item-hover-color: $text;
+$menu-item-radius: 3;
+$menu-item-hover-background-color: $grey-darker;
+$menu-item-active-color: $text;
+$menu-item-active-background-color: $grey-dark;
+$menu-list-link-padding: 0.2em;
+$menu-nested-list-margin: 0.5em;
+
+$title-color: $text;
+$content-heading-color: $text;
+
+$table-color: $text;
+$table-head-cell-color: $primary;
+$table-head-background-color: $white;
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: mergeColorMaps(
