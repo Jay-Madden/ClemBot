@@ -2,8 +2,7 @@
   <div>
     <h1 class="title is-3">Authorization Claims</h1>
     <div class="content">
-      <p></p>
-      <h1 class="title is-light">Claims</h1>
+      <h3 class="title is-light">Overview</h3>
       <p>
         By default ClemBot allows for anyone with the Admin permission in
         Discord full access to ClemBots functionality. But if you want to grant

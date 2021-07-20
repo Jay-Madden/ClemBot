@@ -34,7 +34,7 @@
         content.
       </p>
       <blockquote class="has-background-grey-darker">
-        Hello there discord, I am invoking $MyTag isnt that cool!
+        Hello there Discord, I am invoking $MyTag isnt that cool!
       </blockquote>
       <h2 class="title is-light">Commands</h2>
       <h4 class="title is-light">Create a tag</h4>

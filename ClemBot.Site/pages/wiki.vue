@@ -53,6 +53,11 @@
               class="pb-1"
               @click="changeWikiPage('wiki/Tags')"
             ></b-menu-item>
+            <b-menu-item
+              label="Assignable Roles"
+              class="pb-1"
+              @click="changeWikiPage('wiki/AssignableRoles')"
+            ></b-menu-item>
           </b-menu-list>
         </b-menu>
       </div>

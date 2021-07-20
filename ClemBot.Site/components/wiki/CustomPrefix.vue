@@ -2,8 +2,7 @@
   <div>
     <h1 class="title is-3">Custom Prefix</h1>
     <div class="content">
-      <p></p>
-      <h1 class="title is-light">Prefixes</h1>
+      <h3 class="title is-light">Overview</h3>
       <p>
         A command prefix is the character or phrase that notifies ClemBot that
         you wish to invoke a command.
