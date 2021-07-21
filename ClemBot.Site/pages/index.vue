@@ -67,7 +67,7 @@
                   watching <b>{{ usersCount }} </b> Users
                   <br />
                   <br />
-                  I have handled <b>{{ commandsCount }}</b> commands
+                  Over <b>{{ commandsCount }}</b> commands handled!
                 </article>
               </div>
             </div>
