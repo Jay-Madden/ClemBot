@@ -46,7 +46,9 @@ class ClemBot(commands.Bot):
         self.messenger: Messenger = messenger
         self.scheduler: Scheduler = scheduler
 
+        # Register our before and after invoke hooks
         self._before_invoke = self.command_claims_check
+        self._after_invoke = self.on_after_command_invoke
 
         # pylint: disable=undefined-variable
         self.guild_route: guild_route.GuildRoute = None
@@ -60,6 +62,7 @@ class ClemBot(commands.Bot):
         self.custom_prefix_route: custom_prefix_route.CustomPrefixRoute = None
         self.moderation_route: moderation_route.ModerationRoute = None
         self.claim_route: claim_route.ClaimRoute = None
+        self.commands_route: commands_route.CommandsRoute = None
 
         self.load_cogs()
         self.active_services = {}
@@ -263,6 +266,9 @@ class ClemBot(commands.Bot):
         except Exception as e:
             tb = traceback.format_exc()
             await self.global_error_handler(e, traceback=tb)
+
+    async def on_after_command_invoke(self, ctx):
+        await self.publish_with_error(Events.on_after_command_invoke, ctx)
 
     async def on_command_error(self, ctx, error):
         """

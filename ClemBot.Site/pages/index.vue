@@ -67,7 +67,7 @@
                   watching <b>{{ usersCount }} </b> Users
                   <br />
                   <br />
-                  People have run <b>98,765</b> commands today
+                  I have handled <b>{{ commandsCount }}</b> commands
                 </article>
               </div>
             </div>
@@ -131,6 +131,7 @@ export default Vue.extend({
     return {
       guildsCount: 'Unknown',
       usersCount: 'Unknown',
+      commandsCount: 'Unknown',
 
       features: chunkArray(
         [
@@ -181,6 +182,7 @@ export default Vue.extend({
 
     this.guildsCount = stats.guilds ?? 'many'
     this.usersCount = stats.users ?? 'all the'
+    this.commandsCount = stats.commands ?? 'tons of'
   },
 })
 </script>

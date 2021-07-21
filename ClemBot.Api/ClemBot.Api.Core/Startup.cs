@@ -89,11 +89,9 @@ namespace ClemBot.Api.Core
             // Add our caching dependency
             services.AddLazyCache();
 
-            services.AddCors(options =>
-            {
+            services.AddCors(options => {
                 options.AddDefaultPolicy(
-                    builder =>
-                    {
+                    builder => {
                         builder.WithOrigins("http://localhost:3000");
                     });
             });

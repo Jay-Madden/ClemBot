@@ -49,11 +49,12 @@
             <b>Invite to Server </b>
           </b-button>
         </b-navbar-item>
-        <b-navbar-item href="https://discord.gg/mhrVuyh">
+        <b-navbar-item target="_blank" href="https://discord.gg/mhrVuyh">
           <b-icon id="tray-icons" icon="discord"> </b-icon>
         </b-navbar-item>
         <b-navbar-item
           id="tray-icons"
+          target="_blank"
           href="https://github.com/ClemBotProject/ClemBot"
         >
           <b-icon icon="github"> </b-icon>
