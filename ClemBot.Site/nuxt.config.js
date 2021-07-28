@@ -1,3 +1,7 @@
+const isProd = () => process.env.PROD === '1'
+const prodUrl = 'http://clembot.site:80/api'
+const devUrl = 'http://localhost:5001/api'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -17,7 +21,7 @@ export default {
   },
 
   axios: {
-    baseURL: 'https://localhost:5001/api/', // Used as fallback if no runtime config is provided
+    baseURL: isProd() ? prodUrl : devUrl, // Used as fallback if no runtime config is provided
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

@@ -1,7 +1,11 @@
 <template>
-  <section class="hero is-fullheight-with-navbar">
-    <div class="hero-body">
-      <p class="title">Coming soon!</p>
-    </div>
-  </section>
+  <div>
+    <section class="section is-small"></section>
+    <section class="section is-small">
+      <sponsor-button />
+    </section>
+    <section class="section is-small box has-shadow">
+      <contributors />
+    </section>
+  </div>
 </template>
