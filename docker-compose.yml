@@ -29,6 +29,16 @@ services:
       - ClemBot.Bot/ClemBot.Bot_env.env
     volumes:
       - ~/Logs:/ClemBot.Bot/Logs
+  # Create the Site process to serve users requests over https
+  clembot.site:
+    restart: always
+    build: ClemBot.Site/
+    networks:
+        - ClemBotNet
+	ports: 
+		- "3000:3000"
+    env_file: 
+        - ClemBot.Site/ClemBot.Site_env.env
     
 networks:
   ClemBotNet:

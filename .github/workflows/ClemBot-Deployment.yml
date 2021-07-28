@@ -23,6 +23,7 @@ jobs:
               run: |
                 cp ~/ClemBot.Api_env.env ./ClemBot.Api/ClemBot.Api_env.env
                 cp ~/ClemBot.Bot_env.env ./ClemBot.Bot/ClemBot.Bot_env.env
+                cp ~/ClemBot.Site_env.env ./ClemBot.Bot/ClemBot.Site_env.env
             - name: Stop ClemBot Containers
               run: |
                 docker stop $(docker ps -q)
