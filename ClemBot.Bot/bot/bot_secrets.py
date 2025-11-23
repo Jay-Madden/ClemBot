@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Any, get_origin, get_args
+from typing import Any, get_args, get_origin
 
 from bot.errors import ConfigAccessError
 from bot.utils.logging_utils import get_logger
