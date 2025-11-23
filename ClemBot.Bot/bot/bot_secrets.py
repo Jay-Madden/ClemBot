@@ -244,7 +244,7 @@ class BotSecrets:
             return value
 
         # Fall back to JSON file
-        if json_data is not None and key in json_data:
+        if json_data and key in json_data:
             value = json_data[key]
             log.info(f"{key}: loaded from json file")
             return value
@@ -279,26 +279,22 @@ class BotSecrets:
                 log.error(f"Failed to parse JSON from {source_path}: {e}")
                 raise
 
-        # Pass merged data (or None if no data loaded) to secret loading
-        merged_data = json_data if json_data else None
-
-        # Load each secret
-        self.client_token = self._load_secret("CLIENT_TOKEN", merged_data, str)
-        self.client_secret = self._load_secret("CLIENT_SECRET", merged_data, str)
-        self.bot_token = self._load_secret("BOT_TOKEN", merged_data, str)
-        self.bot_prefix = self._load_secret("BOT_PREFIX", merged_data, str, default="!")
-        self.bot_only = self._load_secret("BOT_ONLY", merged_data, bool, default=False)
-        self.startup_log_channel_ids = self._load_secret("STARTUP_LOG_CHANNEL_IDS", merged_data, list[int])
-        self.error_log_channel_ids = self._load_secret("ERROR_LOG_CHANNEL_IDS", merged_data, list[int])
-        self.repl_url = self._load_secret("REPL_URL", merged_data, str)
+        self.client_token = self._load_secret("CLIENT_TOKEN", json_data, str)
+        self.client_secret = self._load_secret("CLIENT_SECRET", json_data, str)
+        self.bot_token = self._load_secret("BOT_TOKEN", json_data, str)
+        self.bot_prefix = self._load_secret("BOT_PREFIX", json_data, str, default="!")
+        self.bot_only = self._load_secret("BOT_ONLY", json_data, bool, default=False)
+        self.startup_log_channel_ids = self._load_secret("STARTUP_LOG_CHANNEL_IDS", json_data, list[int])
+        self.error_log_channel_ids = self._load_secret("ERROR_LOG_CHANNEL_IDS", json_data, list[int])
+        self.repl_url = self._load_secret("REPL_URL", json_data, str)
         self.github_url = self._load_secret(
-            "GITHUB_URL", merged_data, str, default="https://github.com/ClemsonCPSC-Discord/ClemBot"
+            "GITHUB_URL", json_data, str, default="https://github.com/ClemsonCPSC-Discord/ClemBot"
         )
-        self.api_url = self._load_secret("API_URL", merged_data, str)
-        self.api_key = self._load_secret("API_KEY", merged_data, str)
-        self.site_url = self._load_secret("SITE_URL", merged_data, str)
-        self.docs_url = self._load_secret("DOCS_URL", merged_data, str)
-        self.allow_bot_input_ids = self._load_secret("ALLOW_BOT_INPUT_IDS", merged_data, list[int])
+        self.api_url = self._load_secret("API_URL", json_data, str)
+        self.api_key = self._load_secret("API_KEY", json_data, str)
+        self.site_url = self._load_secret("SITE_URL", json_data, str)
+        self.docs_url = self._load_secret("DOCS_URL", json_data, str)
+        self.allow_bot_input_ids = self._load_secret("ALLOW_BOT_INPUT_IDS", json_data, list[int])
 
         log.info("All bot secrets loaded successfully")
 
