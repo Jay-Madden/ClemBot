@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <Nullable>enable</Nullable>
         <WarningsAsErrors>nullable</WarningsAsErrors>
         <UserSecretsId>95286ed9-8628-45df-b16a-e46644da6b69</UserSecretsId>
-        <LangVersion>12</LangVersion>
+        <LangVersion>14</LangVersion>
         <EnablePreviewFeatures>True</EnablePreviewFeatures>
     </PropertyGroup>
 
