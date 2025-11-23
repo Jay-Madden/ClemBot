@@ -6,7 +6,7 @@ authors = [
     { name = "Jay Madden", email = "jaymaddencox@gmail.com" }
 ]
 license = { text = "MIT" }
-requires-python = ">=3.10,<3.11"
+requires-python = ">=3.13"
 dependencies = [
     "aiohttp>=3.8.3",
     "arrow>=1.2.3",
