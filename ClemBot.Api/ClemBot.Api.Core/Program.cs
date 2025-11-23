@@ -31,6 +31,8 @@ using Npgsql;
 using Quartz;
 using Serilog;
 using Serilog.Events;
+using Serilog.Formatting.Compact;
+using Serilog.Formatting.Json;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -57,13 +59,11 @@ builder.Host.UseSerilog((context, provider, config) => {
     {
         config.MinimumLevel.Override("Microsoft", LogEventLevel.Information)
             .Enrich.FromLogContext()
-            .WriteTo.Seq(context.Configuration[ConfigurationKeys.SeqUrl] ?? throw new ConfigurationException("SeqUrl Not found"),
-                apiKey: context.Configuration[ConfigurationKeys.SeqApiKey])
-            .WriteTo.Console();
+            .WriteTo.Console(new JsonFormatter());
     }
     else
     {
-        config.MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+        config.MinimumLevel.Override("Microsoft", LogEventLevel.Information) 
             .Enrich.FromLogContext()
             .WriteTo.Console();
     }

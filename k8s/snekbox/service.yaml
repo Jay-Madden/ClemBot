@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clembot-snekbox
+  namespace: clembot
+  labels:
+    app: clembot-snekbox
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8060
+    targetPort: 8060
+    protocol: TCP
+    name: http
+  selector:
+    app: clembot-snekbox

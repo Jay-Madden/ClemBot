@@ -1,0 +1,22 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: clembot-db
+  namespace: clembot
+spec:
+  instances: 1
+  bootstrap:
+    initdb:
+      database: clembotdb
+      owner: clembot
+  storage:
+    size: 5Gi
+  monitoring:
+    enablePodMonitor: true
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"

@@ -16,24 +16,14 @@ from bot.utils.scheduler import Scheduler
 async def main() -> None:
     bot_log = logging.getLogger()
 
-    # check if this is a prod or a dev instance
-    if bool(os.environ.get("PROD")):
-        bot_log.info("Production env var found, loading production environment")
-        bot_secrets.secrets.load_production_secrets()
-    else:
-        try:
-            bot_log.info(f"Attempting to load BotSecrets.json from {os.getcwd()}")
-            with open("BotSecrets.json") as f:
-                bot_secrets.secrets.load_development_secrets(f.read())
-        except FileNotFoundError as e:
-            bot_log.fatal(f"{e}: The bot could not find your BotSecrets Json File")
-            sys.exit(0)
-        except KeyError as e:
-            bot_log.fatal(f"{e} is not a valid key in BotSecrets")
-            sys.exit(0)
-        except Exception as e:
-            bot_log.fatal(e)
-            sys.exit(0)
+    try:
+        bot_secrets.secrets.load_secrets("BotSecrets.json")
+    except KeyError as e:
+        bot_log.fatal(f"{e} is not a valid key in BotSecrets")
+        sys.exit(0)
+    except Exception as e:
+        bot_log.fatal(e)
+        sys.exit(0)
 
     # get the default prefix for the bot instance
     prefix = bot_secrets.secrets.bot_prefix

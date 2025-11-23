@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clembot-site
+  namespace: clembot
+  labels:
+    app: clembot-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clembot-site
+  template:
+    metadata:
+      labels:
+        app: clembot-site
+    spec:
+      containers:
+      - name: site
+        image: ghcr.io/clembotproject/clembot.site:master
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        env:
+        - name: PROD
+          value: "1"
+        envFrom:
+        - secretRef:
+            name: clembot-site-secrets
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"

@@ -79,32 +79,33 @@ configured PostgreSQL with your desired username and password, you need to set t
 ## Prepare your ClemBot.Bot config variables
 
 * Copy `BotSecrets.json.template` and rename that copy to `BotSecrets.json`
-* Copy/paste the token from the Discord page into the `BotToken` empty string
-* Make the `ApiUrl` row `https://localhost:5001/`
-* Copy and paste the ClemBot.Api key value that you generated above into the `ApiKey` row
+* Copy/paste the token from the Discord page into the `BOT_TOKEN` empty string
+* Make the `API_URL` row `https://localhost:5001/`
+* Copy and paste the ClemBot.Api key value that you generated above into the `API_KEY` row
 * Copy and paste the channel IDs of the channels in the test server that you want to use for Connection Status updates
-  and Error Logging into the `ErrorLogChannelIds` and `StartupLogChannelIds`. If you don't want this, leave the field as
+  and Error Logging into the `ERROR_LOG_CHANNEL_IDS` and `STARTUP_LOG_CHANNEL_IDS`. If you don't want this, leave the field as
   empty brackets, like so: `[]`
-* Set a custom bot prefix in the `BotPrefix` field that will invoke your commands
+* Set a custom bot prefix in the `BOT_PREFIX` field that will invoke your commands
 
 ### All Config Variables
 
-| Name                   | Type        | Required | Project | Description                                                                                                |
-|------------------------|-------------|----------|---------|------------------------------------------------------------------------------------------------------------|
-| `BotToken`             | `str`       | Yes      | Bot     | Used to log into the bot account.                                                                          |
-| `ApiUrl`               | `str`       | Yes      | API     | URL of the API endpoints (defaults to `http://localhost:5001/`)                                            |
-| `ApiKey`               | `str`       | Yes      | API     | Access key for the bot endpoints in the API.                                                               |
-| `ClientToken`          | `str`       | No       | Site    | Used for the website.                                                                                      |
-| `ClientSecret`         | `str`       | No       | Site    | Used for the website.                                                                                      |
-| `BotPrefix`            | `str`       | Yes      | Bot     | The prefix your bot will respond to.                                                                       |
-| `SiteUrl`              | `str`       | No       | Bot     | The URL of your local site or hosted instance for the bot to link to.                                      |
-| `StartupLogChannelIds` | `list[int]` | No       | Bot     | The IDs of the channels for the bot to send start-up/shutdown events to.                                   |
-| `ErrorLogChannelIds`   | `list[int]` | No       | Bot     | The IDs of the channels for the bot to send error events to.                                               |
-| `ReplUrl`              | `str`       | No       | Bot     | The URL of the Snekbox container.                                                                          |
-| `GitHubSourceUrl`      | `str`       | No       | Bot     | The URL that the `!source` command uses to link to source.                                                 |
-| `BotOnly`              | `bool`      | No       | Bot     | If set to `true`, ClemBot.Bot operates without ClemBot.Api (with limited functionality).                   |
-| `AllowBotInputIds`     | `list[int]` | No       | Bot     | The IDs of Discord bots that are allowed to run ClemBot commands.                                          |
-| `MessageApiBatchSize`  | `int`       | No       | API     | The max cache size for ClemBot's internal message catch before it is flushed to the API (defaults to `5`). | 
+| Name                        | Type        | Required | Project | Description                                                                                                |
+|-----------------------------|-------------|----------|---------|------------------------------------------------------------------------------------------------------------|
+| `BOT_TOKEN`                 | `str`       | Yes      | Bot     | Used to log into the bot account.                                                                          |
+| `API_URL`                   | `str`       | Yes      | API     | URL of the API endpoints (defaults to `http://localhost:5001/`)                                            |
+| `API_KEY`                   | `str`       | Yes      | API     | Access key for the bot endpoints in the API.                                                               |
+| `CLIENT_TOKEN`              | `str`       | No       | Site    | Used for the website.                                                                                      |
+| `CLIENT_SECRET`             | `str`       | No       | Site    | Used for the website.                                                                                      |
+| `BOT_PREFIX`                | `str`       | Yes      | Bot     | The prefix your bot will respond to.                                                                       |
+| `SITE_URL`                  | `str`       | No       | Bot     | The URL of your local site or hosted instance for the bot to link to.                                      |
+| `STARTUP_LOG_CHANNEL_IDS`   | `list[int]` | No       | Bot     | The IDs of the channels for the bot to send start-up/shutdown events to.                                   |
+| `ERROR_LOG_CHANNEL_IDS`     | `list[int]` | No       | Bot     | The IDs of the channels for the bot to send error events to.                                               |
+| `REPL_URL`                  | `str`       | No       | Bot     | The URL of the Snekbox container.                                                                          |
+| `GITHUB_URL`                | `str`       | No       | Bot     | The URL that the `!source` command uses to link to source.                                                 |
+| `BOT_ONLY`                  | `bool`      | No       | Bot     | If set to `true`, ClemBot.Bot operates without ClemBot.Api (with limited functionality).                   |
+| `ALLOW_BOT_INPUT_IDS`       | `list[int]` | No       | Bot     | The IDs of Discord bots that are allowed to run ClemBot commands.                                          |
+| `DOCS_URL`                  | `str`       | No       | Bot     | The URL for the documentation site.                                                                        |
+| `MessageApiBatchSize`       | `int`       | No       | API     | The max cache size for ClemBot's internal message catch before it is flushed to the API (defaults to `5`). | 
 
 ## Setting up the ClemBot.Bot build environment
 

@@ -1,0 +1,6 @@
+# Never commit actual secrets
+secrets.yaml
+
+# Ignore any local overrides or customizations
+*.local.yaml
+kustomization.local.yaml

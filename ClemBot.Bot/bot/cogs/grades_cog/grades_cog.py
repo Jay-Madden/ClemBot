@@ -40,7 +40,7 @@ class GradesCog(commands.Cog):
     def load_data(self) -> None:
         self.grades_df = pd.DataFrame()
         for file in os.listdir(ASSET_LOCATION):
-            self.grades_df = self.grades_df.append(pd.read_csv(f"{ASSET_LOCATION}{file}"))
+            self.grades_df = pd.concat([self.grades_df, pd.read_csv(f"{ASSET_LOCATION}{file}")])
 
         self.grades_df.info()
 
@@ -372,12 +372,12 @@ class GradesCog(commands.Cog):
         )
 
     def get_courses(self) -> list[discord.Embed]:
-        grades = self.grades_df.groupby(["CourseId"]).mean().iterrows()
+        grades = self.grades_df["CourseId"].unique().tolist()
 
         embeds = []
 
         # begin generating paginated columns
-        for chunk in chunk_sequence([prof.name for i, prof in grades], 51):
+        for chunk in chunk_sequence(grades, 51):
             chunk = t.cast(list[str], chunk)
 
             # we need to create the columns on the page so chunk the list again
@@ -421,13 +421,13 @@ class GradesCog(commands.Cog):
         )
 
     def get_profs(self) -> list[discord.Embed]:
-        profs = self.grades_df.groupby(["Instructor"]).mean().iterrows()
+        profs = self.grades_df["Instructor"].unique().tolist()
 
         embeds = []
 
         # begin generating paginated columns
         # chunk the list of tags into groups of TAG_CHUNK_SIZE for each page
-        for chunk in chunk_sequence([prof.name for i, prof in profs], TAG_CHUNK_SIZE):
+        for chunk in chunk_sequence(profs, TAG_CHUNK_SIZE):
             chunk = t.cast(list[str], chunk)
 
             # we need to create the columns on the page so chunk the list again

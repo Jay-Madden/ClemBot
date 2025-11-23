@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clembot-snekbox
+  namespace: clembot
+  labels:
+    app: clembot-snekbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clembot-snekbox
+  template:
+    metadata:
+      labels:
+        app: clembot-snekbox
+    spec:
+      containers:
+      - name: snekbox
+        image: ghcr.io/python-discord/snekbox:latest
+        ports:
+        - containerPort: 8060
+          name: http
+          protocol: TCP
+        securityContext:
+          privileged: true
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "1000m"
+            memory: "512Mi"
+      restartPolicy: Always

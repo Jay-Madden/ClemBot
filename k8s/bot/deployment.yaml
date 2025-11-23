@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clembot-bot
+  namespace: clembot
+  labels:
+    app: clembot-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clembot-bot
+  template:
+    metadata:
+      labels:
+        app: clembot-bot
+    spec:
+      containers:
+      - name: bot
+        image: ghcr.io/jay-madden/clembot.bot:seq-no-log4
+        envFrom:
+        - secretRef:
+            name: clembot-bot-secrets
+        - configMapRef:
+            name: clembot-bot-config
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "1000m"
+            memory: "1Gi"
+      imagePullSecrets:
+      - name: ghcriocreds
