@@ -38,16 +38,16 @@ class PingPongCog(commands.Cog):
         await sent_message.edit(embed=embed)
 
     async def handle_external_ping(self, ctx: ext.ClemBotCtx, url: str) -> None:
-        timeout = 3
         start = time.perf_counter()
         color = Colors.Error
         message = None
+        timeout = aiohttp.ClientTimeout(total=4, sock_connect=2, sock_read=2)
         try:
             async with aiohttp.ClientSession() as session:
                 await session.get(url, timeout=timeout)
                 color = Colors.ClemsonOrange
         except asyncio.exceptions.TimeoutError:
-            message = f"The server at '{url}' did not respond within {timeout} seconds."
+            message = f"The server at '{url}' did not respond within {timeout.total} seconds."
         except aiohttp.InvalidURL:
             message = f"The URL '{url}' is invalid."
         elapsed = time.perf_counter() - start
