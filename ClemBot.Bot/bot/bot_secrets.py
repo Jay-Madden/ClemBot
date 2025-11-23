@@ -223,7 +223,7 @@ class BotSecrets:
     def _load_secret(
         self,
         key: str,
-        json_data: dict | None,
+        json_data: dict[str, Any] | None,
         type_hint: type = str,
         default: Any = None,
     ) -> Any:
@@ -287,13 +287,9 @@ class BotSecrets:
         self.client_secret = self._load_secret("CLIENT_SECRET", merged_data, str)
         self.bot_token = self._load_secret("BOT_TOKEN", merged_data, str)
         self.bot_prefix = self._load_secret("BOT_PREFIX", merged_data, str, default="!")
-        self.bot_only = self._load_secret("BOT_ONLY", merged_data, bool, default=False)  # type: ignore
-        self.startup_log_channel_ids = self._load_secret(
-            "STARTUP_LOG_CHANNEL_IDS", merged_data, list[int]
-        )
-        self.error_log_channel_ids = self._load_secret(
-            "ERROR_LOG_CHANNEL_IDS", merged_data, list[int]
-        )
+        self.bot_only = self._load_secret("BOT_ONLY", merged_data, bool, default=False)
+        self.startup_log_channel_ids = self._load_secret("STARTUP_LOG_CHANNEL_IDS", merged_data, list[int])
+        self.error_log_channel_ids = self._load_secret("ERROR_LOG_CHANNEL_IDS", merged_data, list[int])
         self.repl_url = self._load_secret("REPL_URL", merged_data, str)
         self.github_url = self._load_secret(
             "GITHUB_URL", merged_data, str, default="https://github.com/ClemsonCPSC-Discord/ClemBot"
